@@ -14,8 +14,10 @@ public:
     {
         model = m;
     }
+
 protected:
     Model* model;
 };
 
 #endif // MODELLISTENER_HPP
+

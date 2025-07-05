@@ -1,2 +1,2 @@
-E:/Documents/TouchGFX_Projects/High_Striker/Core/Src/system_stm32f4xx.c:166:6:SystemInit	0	static
-E:/Documents/TouchGFX_Projects/High_Striker/Core/Src/system_stm32f4xx.c:221:6:SystemCoreClockUpdate	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/system_stm32f4xx.c:166:6:SystemInit	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/system_stm32f4xx.c:221:6:SystemCoreClockUpdate	0	static

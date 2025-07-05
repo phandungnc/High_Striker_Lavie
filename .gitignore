@@ -1,0 +1,17 @@
+# STM32CubeIDE
+.metadata/
+*.launch
+*.log
+*.bak
+*.swp
+*.tmp
+
+# Build folders
+Debug/
+Release/
+
+# STM32 config
+.cproject
+.project
+.mxproject
+.extSettings

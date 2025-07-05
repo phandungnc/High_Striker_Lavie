@@ -1,5 +1,5 @@
 Application/User/generated/UnmappedDataFont.o: \
- E:/Documents/TouchGFX_Projects/High_Striker/TouchGFX/generated/fonts/src/UnmappedDataFont.cpp \
+ D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/generated/fonts/src/UnmappedDataFont.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

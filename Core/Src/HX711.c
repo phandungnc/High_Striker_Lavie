@@ -1,58 +1,53 @@
-#include "HX711.h"
-#include "main.h"
-#include "delay.h"  // nếu bạn có thư viện delay_us (hoặc dùng HAL_Delay nếu chấp nhận độ trễ ms)
+#include "hx711.h"
+void HX711_Init(GPIO_TypeDef* GPIOx_SCK, uint16_t SCK_Pin, GPIO_TypeDef* GPIOx_DOUT, uint16_t DOUT_Pin)
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-void HX711_Init(HX711* hx, GPIO_TypeDef* dout_port, uint16_t dout_pin,
-                GPIO_TypeDef* sck_port, uint16_t sck_pin) {
-    hx->dout_port = dout_port;
-    hx->dout_pin = dout_pin;
-    hx->sck_port = sck_port;
-    hx->sck_pin = sck_pin;
-    hx->offset = 0;
-    hx->scale = 1.0f;
+    // Cấu hình chân (SCK) làm Output
+    GPIO_InitStruct.Pin = SCK_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    HAL_GPIO_Init(GPIOx_SCK, &GPIO_InitStruct);
+
+    // Cấu hình chân (DOUT) làm Input
+    GPIO_InitStruct.Pin = DOUT_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOx_DOUT, &GPIO_InitStruct);
 }
 
-int32_t HX711_ReadRaw(HX711* hx) {
-    int32_t value = 0;
-    while(HAL_GPIO_ReadPin(hx->dout_port, hx->dout_pin));  // chờ sẵn sàng
+// Đọc dữ liệu từ HX711
+int32_t HX711_ReadData(GPIO_TypeDef* GPIOx_SCK, uint16_t SCK_Pin, GPIO_TypeDef* GPIOx_DOUT, uint16_t DOUT_Pin)
+{
+	// chờ DOUT xuống LOW
+	    uint32_t timeout = HAL_GetTick();
+	    while (HAL_GPIO_ReadPin(GPIOx_DOUT, DOUT_Pin) == GPIO_PIN_SET) {
+	        if (HAL_GetTick() - timeout > 1000)
+	            return 0xFFFFFFFF;
+	    }
 
-    for (uint8_t i = 0; i < 24; i++) {
-        HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_SET);
-        value = value << 1;
-        if (HAL_GPIO_ReadPin(hx->dout_port, hx->dout_pin))
-            value++;
-        HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_RESET);
-    }
+	    int32_t value = 0;
+	    for (int i = 0; i < 24; i++) {
+	        HAL_GPIO_WritePin(GPIOx_SCK, SCK_Pin, GPIO_PIN_SET);
+	        delay_us(1);
+	        value <<= 1;
+	        if (HAL_GPIO_ReadPin(GPIOx_DOUT, DOUT_Pin))
+	            value |= 1;
+	        HAL_GPIO_WritePin(GPIOx_SCK, SCK_Pin, GPIO_PIN_RESET);
+	        delay_us(1);
+	    }
 
-    // Bước xung thứ 25 (Channel A, gain 128)
-    HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(hx->sck_port, hx->sck_pin, GPIO_PIN_RESET);
+	    // xử lý số âm
+	    if (value & 0x800000)
+	    value |= 0xFF000000; // Sign extend nếu số âm
+	    else
+	    value &= 0x00FFFFFF; // Đảm bảo không dư bit nếu số dương
 
-    if (value & 0x800000)
-        value |= 0xFF000000;  // chuyển sang số âm (sign extend)
 
-    return value;
-}
-
-float HX711_GetUnits(HX711* hx, uint8_t times) {
-    int64_t sum = 0;
-    for (uint8_t i = 0; i < times; i++) {
-        sum += HX711_ReadRaw(hx);
-        HAL_Delay(1);
-    }
-    int32_t avg = sum / times;
-    return (avg - hx->offset) / hx->scale;
-}
-
-void HX711_Tare(HX711* hx, uint8_t times) {
-    int64_t sum = 0;
-    for (uint8_t i = 0; i < times; i++) {
-        sum += HX711_ReadRaw(hx);
-        HAL_Delay(1);
-    }
-    hx->offset = sum / times;
-}
-
-void HX711_SetScale(HX711* hx, float scale) {
-    hx->scale = scale;
+	    // 1 xung clock để thiết lập gain 128
+	    HAL_GPIO_WritePin(GPIOx_SCK, SCK_Pin, GPIO_PIN_SET);
+	    delay_us(1);
+	    HAL_GPIO_WritePin(GPIOx_SCK, SCK_Pin, GPIO_PIN_RESET);
+	    delay_us(1);
+	    return value;
 }

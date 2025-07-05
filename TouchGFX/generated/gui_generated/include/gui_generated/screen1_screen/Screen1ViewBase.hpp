@@ -9,6 +9,7 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
@@ -27,11 +28,21 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Image image2;
     touchgfx::Image image1;
-    touchgfx::TextArea header;
-    touchgfx::TextArea curentScore;
-    touchgfx::TextArea highScore;
+    touchgfx::Image image2;
+    touchgfx::TextAreaWithOneWildcard currentScore;
+    touchgfx::TextAreaWithOneWildcard highScore;
+    touchgfx::TextArea textArea1;
+    touchgfx::TextArea textArea2;
+    touchgfx::TextArea textArea3;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t CURRENTSCORE_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar currentScoreBuffer[CURRENTSCORE_SIZE];
+    static const uint16_t HIGHSCORE_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar highScoreBuffer[HIGHSCORE_SIZE];
 
 private:
 

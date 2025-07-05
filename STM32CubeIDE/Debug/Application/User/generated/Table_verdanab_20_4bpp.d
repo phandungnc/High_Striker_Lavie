@@ -1,5 +1,5 @@
 Application/User/generated/Table_verdanab_20_4bpp.o: \
- E:/Documents/TouchGFX_Projects/High_Striker/TouchGFX/generated/fonts/src/Table_verdanab_20_4bpp.cpp \
+ E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/generated/fonts/src/Table_verdanab_20_4bpp.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \

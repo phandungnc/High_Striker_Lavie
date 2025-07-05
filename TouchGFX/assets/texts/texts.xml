@@ -6,19 +6,22 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_7LLH" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">888</Translation>
-      </Text>
-      <Text Id="__SingleUse_A6K5" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">888</Translation>
-      </Text>
-      <Text Id="__SingleUse_N8QU" Alignment="Center" TypographyId="Default">
+      <Text Id="__SingleUse_SEH5" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">HIGH STRIKER</Translation>
+      </Text>
+      <Text Id="__SingleUse_IZSL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">High&#10;Score</Translation>
+      </Text>
+      <Text Id="__SingleUse_UIOL" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">Current&#10;Score</Translation>
+      </Text>
+      <Text Id="highScore" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdanab.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Default" Font="verdanab.ttf" Size="16" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="0123456789.-" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
