@@ -11,6 +11,7 @@ public:
     virtual ~Screen1View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    void updateCurrentScore(int32_t value);
 protected:
 };
 

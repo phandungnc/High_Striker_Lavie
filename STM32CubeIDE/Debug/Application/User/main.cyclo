@@ -15,7 +15,7 @@ D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6
 D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1070:6:LCD_Delay	1
 D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1083:9:read_average_offset	2
 D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1093:9:get_average_raw_data	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1108:6:StartDefaultTask	4
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1108:6:StartDefaultTask	6
 D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1103:9:Abs	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1151:6:HAL_TIM_PeriodElapsedCallback	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1169:6:Error_Handler	1
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1194:6:HAL_TIM_PeriodElapsedCallback	2
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1212:6:Error_Handler	1

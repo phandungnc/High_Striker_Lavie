@@ -6,3 +6,4 @@ D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:virtual Screen1View::~Screen1View()	8	static
 D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:5:1:Screen1View::Screen1View()	8	static
 D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:10:6:virtual void Screen1View::setupScreen()	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:20:6:void Screen1View::updateCurrentScore(int32_t)	16	static

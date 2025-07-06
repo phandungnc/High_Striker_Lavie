@@ -26,6 +26,8 @@ public:
     virtual void deactivate();
 
     virtual ~Screen1Presenter() {}
+    virtual void updateCurrentScore(int32_t value);
+
 
 private:
     Screen1Presenter();

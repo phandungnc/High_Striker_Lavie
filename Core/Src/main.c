@@ -1116,6 +1116,13 @@ void StartDefaultTask(void *argument)
     int32_t scale = 100;
     const int trigger_threshold = 30; // vượt ngưỡng này thì mới hiển thị lực
 
+    // phần hiển thị điểm lên màn hình
+    int32_t max_force = 0;
+    int highScore = 0;
+    int tracking_max = 0;  // Cờ bắt đầu tìm max
+    update_score_from_sensor(0);
+    // phần hiển thị điểm lên màn hình
+
     sprintf(buffer, "Offset: %ld\r\n", offset);
     HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
 
@@ -1130,13 +1137,49 @@ void StartDefaultTask(void *argument)
 //        HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
 
         int32_t force = Abs((raw_data - offset)) / scale;
-        // Nếu chưa tracking và vượt ngưỡng
-        if (force >= trigger_threshold)
+
+//        // Nếu chưa tracking và vượt ngưỡng
+//        if (force >= trigger_threshold)
+//        {
+//            snprintf(buffer, sizeof(buffer), "Lực hiện tại: %ld\r\n", force);
+//            HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
+//        }
+
+// START: update hiển thị lên màn hình
+        // lực đủ lớn bắt đầu tracking
+        if (!tracking_max)
         {
-            snprintf(buffer, sizeof(buffer), "Lực hiện tại: %ld\r\n", force);
-            HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
+            if (force >= trigger_threshold)
+            {
+                tracking_max = 1;
+                max_force = force;
+                sprintf(buffer, "Bắt đầu tìm MAX, điểm đầu: %ld kg\r\n", force);
+                HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+            }
+
+            // In ra để theo dõi nếu muốn
+            continue;  // chưa bắt đầu tracking → bỏ qua phần tìm max
         }
+        // đang trong chế độ tracking max
+        if (force > max_force)
+        {
+            max_force = force;
+        }
+
+        sprintf(buffer, "Weight: %ld kg | Max: %ld\r\n", force, max_force);
+        HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+        if(max_force > highScore){
+        	highScore = max_force;
+        }
+        break;
     }
+    // hiển thị điểm lần lượt
+	for(int i=0;i<=max_force;i++){
+		update_score_from_sensor(i);
+		osDelay(10);
+	}
+// END: update hiển thị lên màn hình
+
   /* USER CODE END 5 */
 }
 

@@ -1,2 +1,4 @@
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:4:1:Model::Model()	0	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:9:6:void Model::tick()	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:13:1:Model::Model()	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:21:6:void Model::tick()	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:34:6:void Model::setCurrentScore(int32_t)	0	static
+D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:40:17:void update_score_from_sensor(int32_t)	0	static
