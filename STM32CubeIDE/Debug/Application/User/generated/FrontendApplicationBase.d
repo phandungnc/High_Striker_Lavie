@@ -1,5 +1,5 @@
 Application/User/generated/FrontendApplicationBase.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp \
+ E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp \

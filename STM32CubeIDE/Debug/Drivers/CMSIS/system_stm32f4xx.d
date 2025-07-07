@@ -1,5 +1,5 @@
 Drivers/CMSIS/system_stm32f4xx.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/system_stm32f4xx.c \
+ E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/system_stm32f4xx.c \
  ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h \
  ../../Drivers/CMSIS/Include/core_cm4.h \

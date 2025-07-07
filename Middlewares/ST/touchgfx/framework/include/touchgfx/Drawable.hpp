@@ -503,7 +503,7 @@ public:
     }
 
     /**
-     * Controls whether this Drawable should be visible. Only visible Drawables will have
+     * Controls whether this Drawable should be visible. Only b Drawables will have
      * their draw function called. Additionally, invisible drawables will not receive input
      * events.
      *

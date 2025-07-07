@@ -1,4 +1,8 @@
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:13:1:Model::Model()	0	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:21:6:void Model::tick()	0	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:34:6:void Model::setCurrentScore(int32_t)	0	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp:40:17:void update_score_from_sensor(int32_t)	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:14:1:Model::Model()	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:22:6:void Model::tick()	8	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:66:6:void Model::setCurrentScore(int32_t)	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:72:6:void Model::setHighScore(int32_t)	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:78:17:void update_score_from_sensor(int32_t)	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:86:17:void update_high_score_from_sensor(int32_t)	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:95:17:void trigger_blink_effect_from_c()	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp:103:17:void stop_blink_effect_from_c()	0	static

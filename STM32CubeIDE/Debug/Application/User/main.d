@@ -1,5 +1,5 @@
 Application/User/main.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c \
+ E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../../Core/Inc/stm32f4xx_hal_conf.h \
@@ -51,7 +51,8 @@ Application/User/main.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../../TouchGFX/App/app_touchgfx.h ../../Core/Inc/hx711.h \
  ../../Drivers/BSP/Components/ili9341/ili9341.h \
- ../../Drivers/BSP/Components/ili9341/../Common/lcd.h
+ ../../Drivers/BSP/Components/ili9341/../Common/lcd.h \
+ ../../Core/Inc/flashManager.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../../Core/Inc/stm32f4xx_hal_conf.h:
@@ -105,3 +106,4 @@ Application/User/main.o: \
 ../../Core/Inc/hx711.h:
 ../../Drivers/BSP/Components/ili9341/ili9341.h:
 ../../Drivers/BSP/Components/ili9341/../Common/lcd.h:
+../../Core/Inc/flashManager.h:

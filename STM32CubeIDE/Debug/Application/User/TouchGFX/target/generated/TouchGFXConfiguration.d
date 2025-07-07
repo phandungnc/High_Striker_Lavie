@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/target/generated/TouchGFXConfiguration.cpp \
+ E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/target/generated/TouchGFXConfiguration.cpp \
  ../../TouchGFX/generated/texts/include/texts/TypedTextDatabase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \

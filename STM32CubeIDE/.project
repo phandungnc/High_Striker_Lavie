@@ -380,9 +380,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_40_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdanab_16_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_verdanab_14_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdanab_16_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdanab_14_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/GeneratedFont.cpp</name>
@@ -400,9 +400,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_40_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdanab_16_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_verdanab_14_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdanab_16_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdanab_14_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_verdana_10_4bpp.cpp</name>
@@ -415,9 +415,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_40_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdanab_16_4bpp.cpp</name>
+			<name>Application/User/generated/Table_verdanab_14_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdanab_16_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdanab_14_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/UnmappedDataFont.cpp</name>
@@ -460,6 +460,51 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_backgroundwhite.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_sc1.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc1.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc1_paint.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc1_paint.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc2.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc2.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc3.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc3.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc4.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc4.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc5.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc5.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc6.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc6.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc7.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc7.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sc8.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_sc8.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/LanguageGb.cpp</locationURI>
@@ -475,4 +520,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/texts/src/TypedTextDatabase.cpp</locationURI>
 		</link>
 	</linkedResources>
+	<name>encoding</name>
+	<arguments>
+		<dictionary>
+			<key>RESOURCE</key>
+			<value>UTF-8</value>
+		</dictionary>
+	</arguments>
 </projectDescription>

@@ -1,15 +1,20 @@
 #include "hx711.h"
+//static GPIO_TypeDef* DOUT_PORT;
+//static uint16_t DOUT_PIN;
+//static GPIO_TypeDef* SCK_PORT;
+//static uint16_t SCK_PIN;
+
 void HX711_Init(GPIO_TypeDef* GPIOx_SCK, uint16_t SCK_Pin, GPIO_TypeDef* GPIOx_DOUT, uint16_t DOUT_Pin)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-    // Cấu hình chân (SCK) làm Output
+    // Cấu hình chân PB12 (SCK) làm Output
     GPIO_InitStruct.Pin = SCK_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     HAL_GPIO_Init(GPIOx_SCK, &GPIO_InitStruct);
 
-    // Cấu hình chân (DOUT) làm Input
+    // Cấu hình chân PB14 (DOUT) làm Input
     GPIO_InitStruct.Pin = DOUT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_NOPULL;

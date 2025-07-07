@@ -1,3 +1,3 @@
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:100:19:HAL_DMAEx_MultiBufferStart	12	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:154:19:HAL_DMAEx_MultiBufferStart_IT	16	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:239:19:HAL_DMAEx_ChangeMemory	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:100:19:HAL_DMAEx_MultiBufferStart	12	static
+E:/Documents/TouchGFX_Projects/HighStriker/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:154:19:HAL_DMAEx_MultiBufferStart_IT	16	static
+E:/Documents/TouchGFX_Projects/HighStriker/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c:239:19:HAL_DMAEx_ChangeMemory	0	static

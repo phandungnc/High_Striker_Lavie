@@ -1,0 +1,2 @@
+../Application/User/flashManager.c:12:6:saveHighScoreToFlash	6
+../Application/User/flashManager.c:54:9:readHighScoreFromFlash	3

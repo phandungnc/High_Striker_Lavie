@@ -1,5 +1,5 @@
 Application/User/gui/Model.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/model/Model.cpp \
+ E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp \
@@ -67,7 +67,8 @@ Application/User/gui/Model.o: \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+ ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp
 ../../TouchGFX/gui/include/gui/model/Model.hpp:
 ../../TouchGFX/gui/include/gui/model/ModelListener.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:
@@ -136,3 +137,4 @@ Application/User/gui/Model.o: \
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp:

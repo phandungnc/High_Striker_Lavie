@@ -25,13 +25,22 @@ public:
 
     void setCurrentScore(int32_t value); // Dùng để cập nhật điểm số từ nơi khác trong hệ thống (ví dụ từ ngoại vi, nút bấm, UART, v.v.).
     									 //Gán giá trị value vào pendingScore và đánh dấu hasNewScore = true.
+    void setHighScore(int32_t value);
 
+    void triggerBlinkEffect();
+    bool shouldStartBlinkEffect = false;
+    bool shouldStopBlinkEffect = false;
 protected:
     ModelListener* modelListener;  // Con trỏ ModelListener
 
 private:
     int32_t pendingScore = 0;
     bool hasNewScore = false;
+
+    int32_t pendingHighScore = 0;
+    bool hasNewHighScore = false;
+
+
 };
 
 #endif // MODEL_HPP

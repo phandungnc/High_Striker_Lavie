@@ -21,6 +21,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app_touchgfx.h"
@@ -29,6 +30,7 @@
 #include "string.h"
 #include "stdio.h"
 #include "Components/ili9341/ili9341.h"
+#include <flashManager.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,6 +42,11 @@
 /* USER CODE BEGIN PD */
 #define REFRESH_COUNT ((uint32_t)1386) /* SDRAM refresh counter */
 #define SDRAM_TIMEOUT ((uint32_t)0xFFFF)
+
+#define FLASH_USER_START_ADDR  0x080E0000  // Sector 11 (cho F429)
+#define FLASH_USER_END_ADDR     0x080E07F0  // Địa chỉ kết thúc (128KB sector - mỗi giá trị chiếm 4 byte)
+#define MAX_SLOTS               1000        // Số lượng giá trị có thể lưu trước khi xóa sector
+//#define FLASH_USER_SECTOR      FLASH_SECTOR_11
 
 /**
  * @brief  FMC SDRAM Mode definition register defines
@@ -96,10 +103,19 @@ const osThreadAttr_t GUI_Task_attributes = {
   .stack_size = 8192 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for buttonTask */
+osThreadId_t buttonTaskHandle;
+const osThreadAttr_t buttonTask_attributes = {
+  .name = "buttonTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 uint8_t isRevD = 0; /* Applicable only for STM32F429I DISCOVERY REVD and above */
 // add
 extern void update_score_from_sensor(int32_t score);
+extern void update_high_score_from_sensor(int32_t score);
+extern void trigger_blink_effect_from_c(void);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -115,6 +131,7 @@ static void MX_TIM7_Init(void);
 static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
+void StartButtonTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
@@ -193,7 +210,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   MX_TouchGFX_Init();
   MX_TouchGFX_PreOSInit();
-  HX711_Init(GPIOD, GPIO_PIN_12, GPIOB, GPIO_PIN_12); // sck, dout
+  HX711_Init(GPIOD, GPIO_PIN_12, GPIOB, GPIO_PIN_12); // DOUT, SCK
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -217,10 +234,14 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
+
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of GUI_Task */
   GUI_TaskHandle = osThreadNew(TouchGFX_Task, NULL, &GUI_Task_attributes);
+
+  /* creation of buttonTask */
+  buttonTaskHandle = osThreadNew(StartButtonTask, NULL, &buttonTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */
@@ -250,6 +271,17 @@ int main(void)
   * @brief System Clock Configuration
   * @retval None
   */
+void delay_us(uint32_t us)
+{
+    __HAL_TIM_SET_COUNTER(&htim7, 0); // reset counter
+    HAL_TIM_Base_Start(&htim7);
+
+    while (__HAL_TIM_GET_COUNTER(&htim7) < us)
+        ;
+
+    HAL_TIM_Base_Stop(&htim7);
+}
+
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -708,6 +740,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PA0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PB12 */
   GPIO_InitStruct.Pin = GPIO_PIN_12;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -735,6 +773,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
   /* USER CODE END MX_GPIO_Init_2 */
 }
@@ -746,16 +788,6 @@ static void MX_GPIO_Init(void)
  * @param  Command: Pointer to SDRAM command structure
  * @retval None
  */
-void delay_us(uint32_t us)
-{
-    __HAL_TIM_SET_COUNTER(&htim7, 0); // reset counter
-    HAL_TIM_Base_Start(&htim7);
-
-    while (__HAL_TIM_GET_COUNTER(&htim7) < us)
-        ;
-
-    HAL_TIM_Base_Stop(&htim7);
-}
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command)
 {
     __IO uint32_t tmpmrd = 0;
@@ -943,6 +975,7 @@ static uint8_t I2C3_ReadBuffer(uint8_t Addr, uint8_t Reg, uint8_t *pBuffer, uint
     }
 }
 
+
 /**
  * @brief  Reads 4 bytes from device.
  * @param  ReadSize: Number of bytes to read (max 4 bytes)
@@ -1081,33 +1114,48 @@ void LCD_Delay(uint32_t Delay)
   * @retval None
   */
 int32_t read_average_offset(int samples)
+{
+    int64_t sum = 0;
+    for (int i = 0; i < samples; i++)
     {
-        int64_t sum = 0;
-        for (int i = 0; i < samples; i++) {
-            sum += HX711_ReadData(GPIOD, GPIO_PIN_12, GPIOB, GPIO_PIN_12);
-            osDelay(1); // delay nhỏ giữa mỗi lần đọc
-        }
-        return (int32_t)(sum / samples);
+        sum += HX711_ReadData(GPIOD, GPIO_PIN_12, GPIOB, GPIO_PIN_12);
+        osDelay(1); // delay nhỏ giữa mỗi lần đọc
     }
+    return (int32_t)(sum / samples);
+}
 
 int32_t get_average_raw_data()
 {
     int64_t sum = 0;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         sum += HX711_ReadData(GPIOD, GPIO_PIN_12, GPIOB, GPIO_PIN_12);
         osDelay(1); // Delay nhỏ giữa các lần đọc
     }
     return (int32_t)(sum / 10);
 }
 
-int32_t Abs(int32_t value){
-	if(value<0) return -value;
-	else return value;
+int32_t Abs(int32_t value)
+{
+    if (value < 0)
+        return -value;
+    else
+        return value;
 }
+
+uint8_t lastState = 1; // trạng thái cũ của button
+uint8_t currentState=0;
+int32_t highScore = 0;
+
 /* USER CODE END Header_StartDefaultTask */
+
+
 void StartDefaultTask(void *argument)
 {
-  /* USER CODE BEGIN 5 */
+	/* USER CODE BEGIN 5 */
+//	// hiện score=0 và highScore giữ nguyên (dùng cho nút reset)
+//    update_high_score_from_sensor(highScore);
+//    update_score_from_sensor(0);
 
     osDelay(1000); // Chờ hệ thống ổn định
     char buffer[64];
@@ -1118,15 +1166,15 @@ void StartDefaultTask(void *argument)
 
     // phần hiển thị điểm lên màn hình
     int32_t max_force = 0;
-    int highScore = 0;
     int tracking_max = 0;  // Cờ bắt đầu tìm max
-    update_score_from_sensor(0);
     // phần hiển thị điểm lên màn hình
 
-    sprintf(buffer, "Offset: %ld\r\n", offset);
-    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+    snprintf(buffer, sizeof(buffer), "Offset: %ld\r\n", offset);
+    HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
 
-  /* Infinite loop */
+//    int32_t score = 0;
+    trigger_blink_effect_from_c();
+    osDelay(200);
     for (;;)
     {
         osDelay(500);
@@ -1179,10 +1227,7 @@ void StartDefaultTask(void *argument)
 		osDelay(10);
 	}
 // END: update hiển thị lên màn hình
-
-  /* USER CODE END 5 */
 }
-
 /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM6 interrupt took place, inside

@@ -1,21 +1,22 @@
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:972:13:SPI5_Write	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:253:6:SystemClock_Config	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:160:5:main	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:749:6:delay_us	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:817:6:IOE_Init	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:826:6:IOE_ITConfig	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:838:6:IOE_Write	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:849:9:IOE_Read	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:862:10:IOE_ReadMultiple	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:871:6:IOE_Delay	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:998:6:LCD_IO_Init	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1008:6:LCD_IO_WriteData	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1024:6:LCD_IO_WriteReg	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1043:10:LCD_IO_ReadData	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1070:6:LCD_Delay	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1083:9:read_average_offset	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1093:9:get_average_raw_data	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1108:6:StartDefaultTask	6
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1103:9:Abs	1
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1194:6:HAL_TIM_PeriodElapsedCallback	2
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/main.c:1212:6:Error_Handler	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1005:13:SPI5_Write	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1238:6:StartButtonTask	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:274:6:delay_us	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:285:6:SystemClock_Config	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:177:5:main	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:849:6:IOE_Init	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:858:6:IOE_ITConfig	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:870:6:IOE_Write	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:881:9:IOE_Read	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:894:10:IOE_ReadMultiple	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:903:6:IOE_Delay	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1031:6:LCD_IO_Init	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1041:6:LCD_IO_WriteData	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1057:6:LCD_IO_WriteReg	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1076:10:LCD_IO_ReadData	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1103:6:LCD_Delay	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1116:9:read_average_offset	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1127:9:get_average_raw_data	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1153:6:StartDefaultTask	7
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1138:9:Abs	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1267:6:HAL_TIM_PeriodElapsedCallback	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1285:6:Error_Handler	1

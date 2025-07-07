@@ -8,6 +8,15 @@
 
 const uint16_t BITMAP_ABC_01_ID = 0;
 const uint16_t BITMAP_BACKGROUNDWHITE_ID = 1;
+const uint16_t BITMAP_SC1_ID = 2;
+const uint16_t BITMAP_SC1_PAINT_ID = 3;
+const uint16_t BITMAP_SC2_ID = 4;
+const uint16_t BITMAP_SC3_ID = 5;
+const uint16_t BITMAP_SC4_ID = 6;
+const uint16_t BITMAP_SC5_ID = 7;
+const uint16_t BITMAP_SC6_ID = 8;
+const uint16_t BITMAP_SC7_ID = 9;
+const uint16_t BITMAP_SC8_ID = 10;
 
 namespace BitmapDatabase
 {

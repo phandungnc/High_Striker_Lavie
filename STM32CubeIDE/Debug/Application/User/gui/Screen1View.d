@@ -1,5 +1,5 @@
 Application/User/gui/Screen1View.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/gui/src/screen1_screen/Screen1View.cpp \
+ E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/gui/src/screen1_screen/Screen1View.cpp \
  ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
@@ -88,7 +88,8 @@ Application/User/gui/Screen1View.o: \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+ ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
 ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
@@ -178,3 +179,4 @@ Application/User/gui/Screen1View.o: \
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp:

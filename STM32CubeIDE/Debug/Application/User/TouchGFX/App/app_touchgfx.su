@@ -1,4 +1,4 @@
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/App/app_touchgfx.c:58:6:MX_TouchGFX_PreOSInit	0	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/App/app_touchgfx.c:65:6:MX_TouchGFX_Init	8	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/App/app_touchgfx.c:75:6:MX_TouchGFX_Process	0	static
-D:/Documents/HUST tài liệu/Kỳ 20242/Hệ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/TouchGFX/App/app_touchgfx.c:84:6:TouchGFX_Task	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/App/app_touchgfx.c:58:6:MX_TouchGFX_PreOSInit	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/App/app_touchgfx.c:65:6:MX_TouchGFX_Init	8	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/App/app_touchgfx.c:75:6:MX_TouchGFX_Process	0	static
+E:/Documents/TouchGFX_Projects/HighStriker/TouchGFX/App/app_touchgfx.c:84:6:TouchGFX_Task	0	static

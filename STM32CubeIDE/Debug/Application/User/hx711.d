@@ -1,5 +1,5 @@
 Application/User/hx711.o: \
- D:/Documents/HUST\ tài\ liệu/Kỳ\ 20242/Hệ\ Nhúng/HighStriker-51f41bc5cb67df6f97258d85e5336ce1f68379d6/Core/Src/hx711.c \
+ E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/hx711.c \
  ../../Core/Inc/hx711.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../../Core/Inc/stm32f4xx_hal_conf.h \

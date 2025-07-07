@@ -27,12 +27,15 @@ public:
 
     virtual ~Screen1Presenter() {}
     virtual void updateCurrentScore(int32_t value);
-
+    virtual void updateHighScore(int32_t value);
+    void startBlinkEffect();
+    void stopBlinkEffect();
 
 private:
     Screen1Presenter();
 
     Screen1View& view;
+
 };
 
 #endif // SCREEN1PRESENTER_HPP
