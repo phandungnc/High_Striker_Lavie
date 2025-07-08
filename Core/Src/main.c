@@ -1153,15 +1153,15 @@ int32_t highScore = 0;
 void StartDefaultTask(void *argument)
 {
 	/* USER CODE BEGIN 5 */
-//	// hiện score=0 và highScore giữ nguyên (dùng cho nút reset)
-//    update_high_score_from_sensor(highScore);
-//    update_score_from_sensor(0);
+	// hiện score=0 và highScore giữ nguyên (dùng cho nút reset)
+    update_high_score_from_sensor(highScore);
+    update_score_from_sensor(0);
 
-    osDelay(1000); // Chờ hệ thống ổn định
+    osDelay(300); // Chờ hệ thống ổn định
     char buffer[64];
 
     int32_t offset = read_average_offset(10);
-    int32_t scale = 100;
+    int32_t scale = 80;
     const int trigger_threshold = 30; // vượt ngưỡng này thì mới hiển thị lực
 
     // phần hiển thị điểm lên màn hình
@@ -1172,12 +1172,10 @@ void StartDefaultTask(void *argument)
     snprintf(buffer, sizeof(buffer), "Offset: %ld\r\n", offset);
     HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
 
-//    int32_t score = 0;
-    trigger_blink_effect_from_c();
-    osDelay(200);
+    int32_t score = 0;
     for (;;)
     {
-        osDelay(500);
+        osDelay(20);
         int32_t raw_data = get_average_raw_data();
 
         if (raw_data == 0xFFFFFFFF) continue;
@@ -1185,7 +1183,6 @@ void StartDefaultTask(void *argument)
 //        HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
 
         int32_t force = Abs((raw_data - offset)) / scale;
-
 //        // Nếu chưa tracking và vượt ngưỡng
 //        if (force >= trigger_threshold)
 //        {
@@ -1193,41 +1190,93 @@ void StartDefaultTask(void *argument)
 //            HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
 //        }
 
-// START: update hiển thị lên màn hình
-        // lực đủ lớn bắt đầu tracking
-        if (!tracking_max)
+        // Reset nếu ấn nút đen
+        if (currentState == 1)
         {
-            if (force >= trigger_threshold)
+            tracking_max = 0;
+            score = 0;
+            HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, GPIO_PIN_SET); // bật led
+        	osDelay(150);
+        	HAL_GPIO_WritePin(GPIOG, GPIO_PIN_13, GPIO_PIN_RESET); // tắt led
+            update_score_from_sensor(0);
+            stop_blink_effect_from_c();
+        }
+
+
+        // Chỉ in nếu giá trị thay đổi
+        sprintf(buffer, sizeof(buffer), "Force: %ld kg\r\n", force);
+        HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
+
+        // Nếu chưa tracking và vượt ngưỡng
+        if (!tracking_max && force >= trigger_threshold)
+        {
+            tracking_max = 1;
+            score = force;
+            // chạy hiệu ứng
+            trigger_blink_effect_from_c();
+            osDelay(200);
+
+            // hiển thị điểm lần lượt
+            for (int i = 0; i <= score; i++)
             {
-                tracking_max = 1;
-                max_force = force;
-                sprintf(buffer, "Bắt đầu tìm MAX, điểm đầu: %ld kg\r\n", force);
-                HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+                update_score_from_sensor(i);
+                osDelay(10);
+            }
+            // nháy điểm hiện tại 3 lần
+            for(int i=0;i<3;i++){
+        		osDelay(300);
+        		update_score_from_sensor(-1);
+				osDelay(300);
+				update_score_from_sensor(score);
+        	}
+            // Ghi điểm cao nếu đạt kỷ lục mới
+            if (score > highScore)
+            {
+                highScore = score;
+                for (int i = 0; i < 5; i++)
+                {
+                	osDelay(200);
+                    update_high_score_from_sensor(-1);
+                    osDelay(200);
+                    update_high_score_from_sensor(highScore);
+
+                }
             }
 
-            // In ra để theo dõi nếu muốn
-            continue;  // chưa bắt đầu tracking → bỏ qua phần tìm max
-        }
-        // đang trong chế độ tracking max
-        if (force > max_force)
-        {
-            max_force = force;
+            osDelay(100);
+            continue;
         }
 
-        sprintf(buffer, "Weight: %ld kg | Max: %ld\r\n", force, max_force);
-        HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-        if(max_force > highScore){
-        	highScore = max_force;
-        }
-        break;
     }
-    // hiển thị điểm lần lượt
-	for(int i=0;i<=max_force;i++){
-		update_score_from_sensor(i);
-		osDelay(10);
-	}
-// END: update hiển thị lên màn hình
 }
+/* USER CODE BEGIN Header_StartButtonTask */
+/**
+* @brief Function implementing the buttonTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartButtonTask */
+void StartButtonTask(void *argument)
+{
+  /* USER CODE BEGIN StartButtonTask */
+  /* Infinite loop */
+//char buffer[64];
+//char test[64];
+		    for(;;)
+		    {
+		        currentState = HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0);
+//		        snprintf(buffer, sizeof(buffer), "State: %d \r\n", currentState);
+//		        HAL_UART_Transmit(&huart1, (uint8_t *)buffer, strlen(buffer), HAL_MAX_DELAY);
+		        if(currentState){
+		        	osDelay(1000);
+		        }
+		    }
+
+  /* USER CODE END StartButtonTask */
+}
+
+
+
 /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM6 interrupt took place, inside

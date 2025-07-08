@@ -1,5 +1,5 @@
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1005:13:SPI5_Write	1
-E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1238:6:StartButtonTask	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1259:6:StartButtonTask	2
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:274:6:delay_us	2
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:285:6:SystemClock_Config	1
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:177:5:main	2
@@ -16,7 +16,7 @@ E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1076:10:LCD_IO_ReadDa
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1103:6:LCD_Delay	1
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1116:9:read_average_offset	2
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1127:9:get_average_raw_data	2
-E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1153:6:StartDefaultTask	7
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1153:6:StartDefaultTask	10
 E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1138:9:Abs	1
-E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1267:6:HAL_TIM_PeriodElapsedCallback	2
-E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1285:6:Error_Handler	1
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1288:6:HAL_TIM_PeriodElapsedCallback	2
+E:/Documents/TouchGFX_Projects/HighStriker/Core/Src/main.c:1306:6:Error_Handler	1
