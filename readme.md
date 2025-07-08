@@ -4,8 +4,8 @@ Báo cáo môn học Hệ Nhúng - IT4210
 
 ## GIỚI THIỆU
 
-__Đề bài__: Xây dựng phần cứng và phần mềm mô phỏng trò chơi High Striker. Hệ thống cho phép đo lực tối đa mà người dùng tác động lên cảm biến, hiển thị qua cột LED và hiển thị trên màn hình. Lưu và hiển thị giá trị kỷ lục.
-Đo lực: dùng load cell. Chú ý cần đo đủ nhanh.
+__Đề bài__: Xây dựng phần cứng và phần mềm mô phỏng trò chơi High Striker. Hệ thống cho phép đo lực tối đa mà người dùng tác động lên cảm biến, hiển thị qua cột LED và hiển thị trên màn hình. Lưu và hiển thị giá trị kỷ lục.\
+Đo lực: dùng load cell. Chú ý cần đo đủ nhanh.\
 Hiển thị: LED bar nằm dọc + màn hình trên kit STM32.
 
 __Sản phẩm:__
@@ -15,7 +15,7 @@ __Sản phẩm:__
 4. Giao diện đồ họa đẹp mắt
 5. Hiển thị lên màn hình Your Score và Best Score và hiệu ứng khi chơi
 - Ảnh chụp minh họa:\
-  ![Ảnh minh họa](https://soict.hust.edu.vn/wp-content/uploads/logo-soict-hust-1-1024x416.png)
+  ![Ảnh minh họa](https://github.com/phandungnc/High_Striker_Lavie/blob/main/anh%20minh%20hoa.jpg)
 
 ## TÁC GIẢ
 
@@ -39,23 +39,56 @@ __Sản phẩm:__
 
 ### TÍCH HỢP HỆ THỐNG
 
-- Mô tả các thành phần phần cứng 
-- Mô tả các thành phần phần mềm
+__Mô tả các thành phần phần cứng__
 
+- STM32F429ZIT6: bo mạch điều khiển chính, xử lý logic, giao tiếp phần cứng
+- HX711: khuếch đại tín hiệu từ loadcell, chuyển sang tín hiệu số gửi vào vi điều khiển
+- Loadcell: cảm biến lực khi có tác động
+- Dây nối: Kết nối giữa các thiết bị
+__Mô tả các thành phần phần mềm__
+
+- STM32CubeIDE: viết và quản lý code, hỗ trợ build, debug, nạp code vào MCU
+- TouchGFX: Thiết kế giao diện, hiệu ứng, hiển thị điểm, gen code tự động
+- Firmware C/C++: xử lý giá trị đọc từ HX711, tính toán điểm và hiển thị lên màn hình
 ### ĐẶC TẢ HÀM
 
-- Giải thích một số hàm quan trọng: ý nghĩa của hàm, tham số vào, ra
-
+- Hàm đọc dữ liệu từ HX711
   ```C
      /**
-      *  Hàm tính ...
-      *  @param  x  Tham số
-      *  @param  y  Tham số
+      *  @param  GPIOx_SCK Loại chân 
+      *  @param  SCK_Pin Số thứ tự chân
+      *  @param  GPIOx_DOUT Loại chân
+      *  @param  DOUT_Pin Số thứ tự chân
       */
-     void abc(int x, int y = 2);
+     int32_t HX711_ReadData(GPIO_TypeDef* GPIOx_SCK, uint16_t SCK_Pin, GPIO_TypeDef* GPIOx_DOUT, uint16_t DOUT_Pin)
   ```
-  
+- Hàm cập nhật điểm hiện tại
+  ```C
+     /**
+      *  @param  value Giá trị điểm
+      */
+     update_score_from_sensor(int value)
+  ```
+- Hàm cập nhật điểm cao nhất
+  ```C
+     /**
+      *  @param  value Giá trị điểm
+      */
+     update_highScore_from_sensor(int value)
+  ```
+- Hàm xử lý bật, tắt hiệu ứng giao diện
+   ```C
+     /**
+      *  
+      */
+     void Screen1View::handleTickEvent()
+  ```
+-  Hàm quản lý hiển thị điểm và hiệu ứng lên màn hình
+   ```C
+     /**
+      *  
+      */
+     void Model::tick()
+  ```
 ### KẾT QUẢ
-
-- Các ảnh chụp với caption giải thích.
-- Hoặc video sản phẩm
+Link demo: https://www.youtube.com/shorts/O6ix2_2aoTM
