@@ -14,7 +14,8 @@ __Sản phẩm:__
 3. Reset lượt chơi bằng nút bấm user button
 4. Giao diện đồ họa đẹp mắt
 5. Hiển thị lên màn hình Your Score và Best Score và hiệu ứng khi chơi
-- Ảnh chụp minh họa:\
+- Ảnh chụp minh họa:
+
   ![Ảnh minh họa](https://github.com/phandungnc/High_Striker_Lavie/blob/main/anh%20minh%20hoa.jpg)
 
 ## TÁC GIẢ
@@ -45,6 +46,7 @@ __Mô tả các thành phần phần cứng__
 - HX711: khuếch đại tín hiệu từ loadcell, chuyển sang tín hiệu số gửi vào vi điều khiển
 - Loadcell: cảm biến lực khi có tác động
 - Dây nối: Kết nối giữa các thiết bị
+
 __Mô tả các thành phần phần mềm__
 
 - STM32CubeIDE: viết và quản lý code, hỗ trợ build, debug, nạp code vào MCU
@@ -89,6 +91,6 @@ __Mô tả các thành phần phần mềm__
       *  
       */
      void Model::tick()
-  ```
+
 ### KẾT QUẢ
 Link demo: https://www.youtube.com/shorts/O6ix2_2aoTM
