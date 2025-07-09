@@ -36,7 +36,7 @@ __Sản phẩm:__
 
 ## SƠ ĐỒ SCHEMATIC
 
-![image](https://github.com/user-attachments/assets/f15f7379-09bf-472a-b0d9-4de6d32a6ec0)
+![image](https://github.com/phandungnc/High_Striker_Lavie/blob/main/schematic.png)
 
 ### TÍCH HỢP HỆ THỐNG
 
